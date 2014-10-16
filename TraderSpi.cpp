@@ -3,7 +3,7 @@
 using namespace std;
 
 #include "./ThostTraderApi/ThostFtdcTraderApi.h"
-#include "TraderSpi.h"
+#include "./TraderSpi_rewrite.h"
 
 #pragma warning(disable : 4996)
 //static bool thing=false;

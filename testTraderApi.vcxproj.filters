@@ -21,7 +21,10 @@
     <ClCompile Include="testTraderApi.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="TraderSpi_w.cpp">
+    <ClCompile Include="TraderSpi_rewrite.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cfg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,16 +32,10 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TraderSpi.h">
+    <ClInclude Include="TraderSpi_rewrite.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ThostTraderApi\ThostFtdcTraderApi.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ThostTraderApi\ThostFtdcUserApiStruct.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ThostTraderApi\ThostFtdcUserApiDataType.h">
+    <ClInclude Include="cfg.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

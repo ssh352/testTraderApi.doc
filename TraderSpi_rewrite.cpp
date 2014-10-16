@@ -3,7 +3,7 @@
 using namespace std;
 
 #include "./ThostTraderApi/ThostFtdcTraderApi.h"
-#include "./TraderSpi.h"
+#include "./TraderSpi_rewrite.h"
 
 static bool offer=false;
 static bool cancel = false;
@@ -23,7 +23,6 @@ extern CThostFtdcTraderApi* pUserApi;
 static int judge=0;
 
 // 配置参数
-extern char FRONT_ADDR[];		// 前置地址
 extern char BROKER_ID[];		// 经纪公司代码
 extern char INVESTOR_ID[];		// 投资者代码
 extern char PASSWORD[];			// 用户密码

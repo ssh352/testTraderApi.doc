@@ -94,19 +94,18 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cfg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="testTraderApi.cpp" />
-    <ClCompile Include="TraderSpi_w.cpp" />
+    <ClCompile Include="TraderSpi_rewrite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cfg.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="ThostTraderApi\ThostFtdcTraderApi.h" />
-    <ClInclude Include="ThostTraderApi\ThostFtdcUserApiDataType.h" />
-    <ClInclude Include="ThostTraderApi\ThostFtdcUserApiStruct.h" />
-    <ClInclude Include="TraderSpi.h" />
+    <ClInclude Include="TraderSpi_rewrite.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
