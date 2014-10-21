@@ -1,0 +1,44 @@
+///*****************************创建报单或者撤单操作后系统的反馈******************************************************
+void CTraderSpi::OnRtnOrder(CThostFtdcOrderField *pOrder)
+	{
+	int temp=0;	
+	cerr << "--->>> " << "OnRtnOrder"  << endl;
+	//挂单后自动回到cmd()	
+	if(judge==2)
+	{
+		cerr << "--->>> " << "OnRtnOrder"  << endl;
+		if(offer)
+		{
+			offer=false;
+			cout<<ORDER_REF<<endl;
+			temp=atoi(pOrder->OrderRef);
+			printf("%d",temp);
+			i++;
+			strcpy(orderref[i],pOrder->OrderRef);
+			strcpy(idref[i],pOrder->OrderSysID);
+			reqid[temp]=pOrder->RequestID;
+			cout<<pOrder->BrokerID<<pOrder->InvestorID<<pOrder->ExchangeID<<pOrder->BrokerID<<pOrder->OrderSysID<<idref<<orderref<<endl;
+			p[temp]=pOrder;			
+			cmd();
+		}
+		else 
+		{
+			offer=true;
+		}
+	}
+
+	if(judge==3)
+	{
+		cout<<"撤单成功"<<endl;
+		if(cancel)
+		{
+			cout<<"撤单成功22"<<endl;
+			cancel=false;
+			cmd();
+		}
+		else
+		{
+			cancel=true;
+		}
+	}
+}

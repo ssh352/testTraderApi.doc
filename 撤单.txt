@@ -1,0 +1,54 @@
+void CTraderSpi::ReqOrderAction(CThostFtdcOrderField *pOrder)
+{	if (pOrder->OrderStatus != THOST_FTDC_OST_Canceled)
+	{
+		CThostFtdcInputOrderActionField req;
+		memset(&req, 0, sizeof(req));
+		///经纪公司代码
+		cout<<pOrder->BrokerID<<pOrder->InvestorID<<pOrder->ExchangeID<<pOrder->BrokerID<<pOrder->OrderSysID<<endl;
+		strcpy(req.BrokerID, pOrder->BrokerID);
+		///投资者代码
+		strcpy(req.InvestorID, pOrder->InvestorID);
+		///报单操作引用
+		TThostFtdcOrderActionRefType	OrderActionRef;
+		///报单引用
+		strcpy(req.OrderRef, pOrder->OrderRef);
+		///请求编号
+
+		TThostFtdcRequestIDType	RequestID;
+		///前置编号
+
+		printf("%d",SESSION_ID);
+		req.FrontID = FRONT_ID;
+		///会话编号
+		req.SessionID = SESSION_ID;
+		///交易所代码
+		strcpy(req.ExchangeID,pOrder->ExchangeID);
+		///报单编号
+		 strcpy(req.OrderSysID, pOrder->OrderSysID);
+		///操作标志
+		req.ActionFlag = THOST_FTDC_AF_Delete;
+		///价格
+		//req.LimitPrice=LIMIT_PRICE;
+		///数量变化
+		//TThostFtdcVolumeType	VolumeChange;
+		///用户代码
+		//TThostFtdcUserIDType	UserID;
+		///合约代码
+		//strcpy(req.InstrumentID, pOrder->InstrumentID);
+		judge=3;
+	
+		int iResult = pUserApi->ReqOrderAction(&req, ++iRequestID);cerr << "--->>> 报单操作请求: "  << iResult << ((iResult == 0) ? ", 成功" : ", 失败") << endl;
+	}
+	else
+	{
+		cout<<"单子已经撤销过了"<<endl;
+		cmd();
+	}
+}
+//报单响应
+void CTraderSpi::OnRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+{
+	cerr << "--->>> " << "OnRspOrderAction" << endl;
+	IsErrorRspInfo(pRspInfo);
+	cmd();
+}

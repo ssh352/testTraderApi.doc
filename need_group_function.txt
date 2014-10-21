@@ -1,0 +1,42 @@
+//登录部分
+void CTraderSpi::OnFrontConnected()
+void CTraderSpi::ReqUserLogin()
+void CTraderSpi::OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin,CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+void CTraderSpi::ReqSettlementInfoConfirm()
+void CTraderSpi::OnRspSettlementInfoConfirm(CThostFtdcSettlementInfoConfirmField *pSettlementInfoConfirm, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+
+//发单响应
+//核心响应
+void CTraderSpi::OnRtnOrder(CThostFtdcOrderField *pOrder)
+void CTraderSpi::OnRtnTrade(CThostFtdcTradeField *pTrade)
+
+//挂单
+void CTraderSpi::ReqOrderInsert()
+void CTraderSpi::OnRspOrderInsert(CThostFtdcInputOrderField *pInputOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+void CTraderSpi::ReqOrderAction(CThostFtdcOrderField *pOrder)
+void CTraderSpi::OnRspOrderAction(CThostFtdcInputOrderActionField *pInputOrderAction, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+
+//连接错误响应
+void CTraderSpi::OnFrontDisconnected(int nReason)
+void CTraderSpi::OnHeartBeatWarning(int nTimeLapse)
+void CTraderSpi::OnRspError(CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+bool CTraderSpi::IsErrorRspInfo(CThostFtdcRspInfoField *pRspInfo)
+
+//查询order状态
+
+void CTraderSpi::ReqQryOrder()
+void CTraderSpi::OnRspQryOrder(CThostFtdcOrderField *pOrder, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
+
+//自判断order状态
+bool CTraderSpi::IsMyOrder(CThostFtdcOrderField *pOrder)
+bool CTraderSpi::IsTradingOrder(CThostFtdcOrderField *pOrder)
+
+//查询合约状态
+void CTraderSpi::ReqQryInstrument()
+void CTraderSpi::OnRspQryInstrument(CThostFtdcInstrumentField *pInstrument, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+
+//查询账户状态
+void CTraderSpi::ReqQryTradingAccount()
+void CTraderSpi::OnRspQryTradingAccount(CThostFtdcTradingAccountField *pTradingAccount, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+void CTraderSpi::ReqQryInvestorPosition()
+void CTraderSpi::OnRspQryInvestorPosition(CThostFtdcInvestorPositionField *pInvestorPosition, CThostFtdcRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
